@@ -1,0 +1,41 @@
+﻿<div class="card" id="menu_rot">
+    <div class="card-header">
+        <h5>Horario</h5>
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>Hora de inicio:</th>
+                    <td><input id="sc_start" class="form-control" type="time" value="" data-old=""></td>
+                </tr>
+                <tr>
+                    <th>Hora de termino:</th>
+                    <td><input id="sc_end" class="form-control" type="time" value="" data-old=""></td>
+                </tr>
+                <tr>
+                    <th>Break:</th>
+                    <td><input id="sc_break" class="form-control" type="number" value="" data-old=""></td>
+                </tr>
+                <tr>
+                    <th>Codigo de pago:</th>
+                    <td>
+                        <textarea name="textarea" rows="10" cols="50">
+
+    
+                        </textarea>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="form-group">
+            <div id="alert_log" class="alert alert-danger" role="alert" style="display: none;"></div>
+        </div>
+        <button id="sc_update-btn" type="button" class="btn btn-success">Actualizar</button>
+        <button id="rot_time_delete"
+                type="button"
+                class="btn btn-outline-danger">
+            Eliminar horario
+        </button>
+    </div>
+</div>

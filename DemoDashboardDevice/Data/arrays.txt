@@ -1,0 +1,21 @@
+{
+  "data": [
+    [
+      id: "Tiger Nixon",
+      nombre: "System Architect",
+      apellido: "Edinburgh",
+      rut: "5421",
+    ],
+        [
+      id: "Tiger Nixon",
+      nombre: "System Architect",
+      apellido: "Edinburgh",
+      rut: "5421",
+    ],
+        [
+      id: "Tiger Nixon",
+      nombre: "System Architect",
+      apellido: "Edinburgh",
+      rut: "5421",
+    ],
+}
