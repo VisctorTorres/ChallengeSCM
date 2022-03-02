@@ -30,24 +30,34 @@
                         <i class="right fas fa-angle-left"></i>
                     </p>
                 </a>
-                <ul class="nav nav-treeview">
-                    <li id="ColList" class="nav-item">
-                        <a href="@Url.Action("Index", "Employee")" class="nav-link">
-                            <i class="fa fa-indent nav-icon"></i>
-                            <p>Colaboradores</p>
+                <ul class="nav nav-treeview ">
+                    <li id="ColList" class="nav-item ">
+                        <a href="#" class="nav-link  menu-open">
+                            <i class=" fa fa-users nav-icon"></i>
+                            <p>Colaboradores
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
                         </a>
+
+                        <ul class="nav nav-treeview">
+                            <li id="ListCol" class="nav-item">
+                                <a href="@Url.Action("Index", "Employee")" class="nav-link">
+                                <i class="fa fa-list-alt nav-icon"></i>
+                            <p>Listado</p>
+                            </a>
+                            </li>
+                            <li  id="NueCol" class="nav-item">
+                                <a href="@Url.Action("Create", "Employee")" class="nav-link">
+                                <i class="fa fa-plus nav-icon"></i>
+                            <p>Nuevo</p>
+                            </a>
+                            </li>
+                        </ul>
                     </li>
                     <li id="DeviceList" class="nav-item">
-
                         <a href="@Url.Action("Index", "Device")" class="nav-link">
                             <i class="fa fa-exchange-alt nav-icon"></i>
                             <p>Dispositivos</p>
-                        </a>
-                    </li>
-                    <li id="NewEmployee" class="nav-item">
-                        <a href="@Url.Action("Create", "Employee")" class="nav-link">
-                            <i class="fa fa-indent nav-icon"></i>
-                            <p>Nuevo Colaborador</p>
                         </a>
                     </li>
 

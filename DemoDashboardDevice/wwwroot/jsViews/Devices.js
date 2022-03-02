@@ -4,8 +4,8 @@ var tabla;
 
 //Funciones
 function inicializar() {
-    tabla = $('#tbl_employee').DataTable(
-        {   
+    tabla = $('#tbl_device').DataTable(
+        {
             "order": [[2, "asc"]],
             "columnDefs": [
                 {
@@ -26,44 +26,13 @@ function inicializar() {
                 {
                     "targets": [3],
                     "className": "text-center"
-                },
-                {
-                    "targets": [4],
-                    "className": "text-center"
-                },
-                
-                
+                }
             ],
             "dom": 'Blfrtip',
             "buttons": [
-                {
-                    "extend": 'copy',
-                    "text": '<u>C</u>opy',
-                    "key": {
-                        "key": 'c',
-                        "shiftKey": true
-                    }
-                },
-                {
-                    "extend": 'excel',
-                    "text": '<u>E</u>xcel',
-                    "title": 'Personas',
-                    "key": {
-                        "key": 'e',
-                        "shiftKey": true
-                    }
-                },
-                {
-                    "extend": 'pdf',
-                    "text": '<u>P</u>df',
-                    "title": 'Personas',
-                    "key": {
-                        "key": 'p',
-                        "shiftKey": true
-                    }
-                }
+
             ],
-            "paging": true,
+            "paging": false,
             "autoWidth": false,
             "pageLength": 25,
             "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
@@ -91,7 +60,7 @@ function inicializar() {
 function GetDataAjax() {
     $.ajax({
         type: "GET",
-        url: "/Employee/GetListEmployee",
+        url: "/Device/GetListDevice",
         data: null,
         dataType: 'json',
         contentType: "application/json; charset=utf-8",
@@ -102,31 +71,31 @@ function GetDataAjax() {
             tabla.clear().draw();
             if (data.length > 0) {
                 console.log(data);
-                CargaEmployee(data);
+                CargaDevice(data);
             }
         }
     });
 }
-function CargaEmployee(data) {
+function CargaDevice(data) {
     for (var i = 0; i < data.length; i++) {
         button = "";
-        if ((data[i].status != 0)                                                                                                       ) {
+        if ((data[i].status != 0) && (data[i].status != 2)) {
             button = `<button title ="Borrar" id="${data[i]._id}" class="btn btn-danger btn-deny" style="width:50%;"> <i class="fa fa-trash"></i> </button>`;
         }
         tabla.row.add([
             data[i]._id,
-            data[i].name,
-            data[i].identity_number,
-            data[i].company_name,
-            button ,
+            data[i].host,
+            data[i].model,
+            button
         ]).draw(false);
     }
 }
+//Fin Funciones
 
 function DeleteDataAjax(idDelete) {
     $.ajax({
         type: "POST",
-        url: "/Employee/Delete",
+        url: "/Device/Delete",
         data: {id:idDelete},
         dataType: 'json',
         error: function (xhr, ajaxOptions, thrownError) {
@@ -146,8 +115,6 @@ function DeleteDataAjax(idDelete) {
         }
     });
 }
-//Fin Funciones
-
 //Eventos
 inicializar();
 
@@ -161,5 +128,4 @@ $(document).on('click', '.btn-deny', function (e) {
     //sendDataAjax(data[0], 0);
 
 }); 
-
 //Fin Eventos

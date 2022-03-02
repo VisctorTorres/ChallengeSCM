@@ -7,11 +7,14 @@ using MongoDB.Driver;
 namespace DemoDashboardDevice.Models
 {
     public class MongoHelper
-    {
+    {   
+        
         public static IMongoClient client{get; set;}
         public static IMongoDatabase database {get; set;}
         public static string MongoConnection = "mongodb+srv://UserData:PassData@challenge.bloaa.mongodb.net/Challenge?retryWrites=true&w=majority";
         public static string MongoDatabase = "Challenge";
+        public static IMongoCollection<Models.Person> PersonCollection { get; set;}
+        public static IMongoCollection<Models.Device> DeviceCollection { get; set;}
 
         internal static void ConnectToMongoService()
         {
